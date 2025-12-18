@@ -97,6 +97,14 @@
             font-size: 0.875rem;
             z-index: 10;
         }
+
+        .scientific-name {
+            font-style: italic;
+        }
+
+        .section-header {
+            @apply text-xl font-bold text-slate-800 mb-4 border-l-4 border-blue-500 pl-3 flex items-center gap-2;
+        }
     </style>
 </head>
 <body class="bg-gradient-soft min-h-screen">
@@ -132,7 +140,7 @@
             </div>
         </section>
 
-      <!-- 關於我 (About Section) -->
+         <!-- 關於我 (About Section) -->
         <section id="about">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="md:col-span-1 space-y-8">
@@ -200,33 +208,91 @@
             </div>
         </section>
 
+
         <!-- 研究成果 -->
         <section id="research">
-            <div class="max-w-3xl mx-auto space-y-10">
-                <div class="text-center space-y-4">
-                    <h2 class="text-3xl font-bold text-slate-800">專題研究</h2>
-                    <p class="text-blue-600">探討夏塊菌與臺灣櫸及台灣二葉松之親合性</p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <!-- 圖片 A -->
-                    <div class="img-container shadow-lg">
-                        <div id="error-a" class="img-error-msg">找不到圖片 0643-0644.png</div>
-                        <img id="img-a" src="./0643-0644.png" alt="實驗照片1" style="opacity: 0;">臺灣櫸接種10 mL之菌根<div class="img-overlay font-medium">divv
+            <div class="max-w-5xl mx-auto space-y-10">
+                <!-- 標題與前言 -->
+                <div class="glass-card p-8 rounded-2xl shadow-md border-t-4 border-blue-500">
+                    <div class="text-center mb-8">
+                        <h2 class="text-3xl font-bold text-slate-800 mb-2">探討夏塊菌與臺灣櫸和臺灣二葉松之親合性</h2>
+                        <p class="text-sm text-slate-500 uppercase tracking-widest scientific-name">Study on the Compatibility of Tuber aestivum with Pinus taiwanensis and Zelkova serrata</p>
+                        <p class="mt-4 text-slate-700">蔡芷庭、林瑞進 | 國立嘉義大學森林暨自然資源學系</p>
                     </div>
                     
-                    <!-- 圖片 B -->
-                    <div class="img-container shadow-md">
-                        <div id="error-b" class="img-error-msg">找不到圖片 0861-0863.png</div>
-                        <img id="img-b" src="./0861-0863.png" alt="實驗照片2" style="opacity: 0;">
-                        <div class="img-overlay text-xs">臺灣二葉松接種10 mL之菌根</div>
+                    <h3 class="section-header"><i class="fas fa-info-circle"></i> I. 前言</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        松露為與植物根系形成外生菌根的地下真菌，具有獨特香氣與高經濟價值。現有研究多以松科與殼斗科為主要宿主，然而最新研究指出櫸屬樹種亦可能與松露共生。
+                        <strong>臺灣櫸 (<span class="scientific-name">Zelkova serrata</span>)</strong> 與 
+                        <strong>臺灣二葉松 (<span class="scientific-name">Pinus taiwanensis</span>)</strong> 皆為重要造林樹種，本研究旨在評估兩者與夏塊菌之親合性，以利造林並發展林下經濟。
+                    </p>
+                </div>
+
+                <!-- 材料與方法 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="glass-card p-8 rounded-2xl">
+                        <h3 class="section-header"><i class="fas fa-flask"></i> II. 材料與方法</h3>
+                        <ul class="space-y-4 text-sm text-slate-600">
+                            <li><strong class="text-slate-800">1. 苗木培養：</strong> 使用 30% $H_2O_2$ 消毒，播種於滅菌介質（蛭石：泥炭土=1:1），待發芽 14 天後移入穴植管。</li>
+                            <li><strong class="text-slate-800">2. 接種處理：</strong> 將子實體均質製備孢子懸浮液（1200mL），分別施予 10mL 與 20mL 接種量進行對照。</li>
+                            <li><strong class="text-slate-800">3. 型態觀察：</strong> 待根系生長完整，以解剖顯微鏡觀察菌絲與外生菌根型態。</li>
+                        </ul>
+                    </div>
+                    <div class="glass-card p-8 rounded-2xl flex flex-col justify-center text-center">
+                        <h4 class="font-bold text-blue-600 mb-2 underline">接種劑量換算</h4>
+                        <p class="text-sm text-slate-600">本研究每 1 mL 懸浮液含 0.025g 子實體</p>
+                        <div class="flex justify-center gap-8 mt-4">
+                            <div><p class="text-xl font-bold">10mL</p><p class="text-xs">0.25g 子實體</p></div>
+                            <div><p class="text-xl font-bold">20mL</p><p class="text-xs">0.50g 子實體</p></div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="glass-card p-8 rounded-2xl shadow-md border-t-4 border-blue-500">
-                    <h3 class="text-xl font-bold mb-4">研究目的</h3>
+                <!-- 結果與討論 -->
+                <div class="glass-card p-8 rounded-2xl shadow-md">
+                    <h3 class="section-header"><i class="fas fa-microscope"></i> III. 結果與討論</h3>
+                    
+                    <!-- 圖片 A -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
+                        <div class="space-y-4">
+                            <div class="img-container shadow-lg">
+                                <div id="error-a" class="img-error-msg">找不到圖片 0643-0644.png</div>
+                                <img id="img-a" src="./0643-0644.png" alt="臺灣櫸接種結果" style="opacity: 0;">
+                                <div class="img-overlay font-medium">圖 3. 夏塊菌接種臺灣櫸之外生菌根型態</div>
+                            </div>
+                            <div class="bg-blue-50 p-4 rounded-xl border border-blue-100 text-sm">
+                                <p class="font-bold text-blue-800 mb-1">【臺灣櫸觀察結果】</p>
+                                <p class="text-slate-600">
+                                    接種 10mL (6個月)：可見共生初期形態，菌絲分布於根系表面。<br>
+                                    接種 20mL (3個月)：可觀察到<strong>單軸棒型</strong>之外生菌根，且菌絲包覆明顯。
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- 圖片 B -->
+                        <div class="space-y-4">
+                            <div class="img-container shadow-md">
+                                <div id="error-b" class="img-error-msg">找不到圖片 0861-0863.png</div>
+                                <img id="img-b" src="./0861-0863.png" alt="臺灣二葉松接種結果" style="opacity: 0;">
+                                <div class="img-overlay text-xs">圖 4. 夏塊菌接種臺灣二葉松之外生菌根型態</div>
+                            </div>
+                            <div class="bg-blue-50 p-4 rounded-xl border border-blue-100 text-sm">
+                                <p class="font-bold text-blue-800 mb-1">【臺灣二葉松觀察結果】</p>
+                                <p class="text-slate-600">
+                                    接種 10mL (6個月)：呈現<strong>二叉分枝</strong>與單軸棒型。<br>
+                                    接種 20mL (2個月)：菌絲分布於表面，可見絨毛狀菌絲覆蓋根表。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 結論 -->
+                <div class="glass-card p-8 rounded-2xl shadow-md border-b-4 border-green-500">
+                    <h3 class="section-header text-green-700 border-green-500"><i class="fas fa-check-circle"></i> IV. 結論</h3>
                     <p class="text-slate-600 leading-relaxed">
-                        研究夏塊菌（Tuber aestivum）與臺灣櫸(Zelkova serrata)以及臺灣二葉松(Pinus taiwanensis)之親合性，觀察是否能與夏塊菌共生並發展出外生菌根，目的是希望能造林同時發展林下經濟
+                        研究證實<strong>臺灣櫸</strong>與<strong>臺灣二葉松</strong>皆具備與夏塊菌建立共生關係之親合性。
+                        以成本考量，臺灣二葉松僅需 <strong>10mL</strong> 的接種量即可達成有效接種。此觀察可為後續人工接種操作與林下經濟栽培策略提供重要參考。
                     </p>
                 </div>
             </div>
@@ -248,13 +314,10 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // 多重路徑偵測邏輯
         function setupImageRetry(imgId, errorId, fileName) {
             const img = document.getElementById(imgId);
             const error = document.getElementById(errorId);
             let attempt = 0;
-            
-            // 嘗試清單：1.相對路徑 2.Raw路徑 3.大寫PNG 4.大寫Raw
             const paths = [
                 `./${fileName}`,
                 `https://raw.githubusercontent.com/wenlingshen/testt/main/${fileName}`,
@@ -270,16 +333,13 @@
             img.onerror = function() {
                 attempt++;
                 if (attempt < paths.length) {
-                    console.log(`正在嘗試路徑 ${attempt}: ${paths[attempt]}`);
                     this.src = paths[attempt];
                 } else {
                     this.style.display = 'none';
                     error.style.display = 'block';
-                    error.innerHTML = `無法載入圖片：${fileName}<br>請確認檔案已上傳至 testt 儲存庫`;
+                    error.innerHTML = `無法載入：${fileName}`;
                 }
             };
-
-            // 開始第一次嘗試
             img.src = paths[0];
         }
 
