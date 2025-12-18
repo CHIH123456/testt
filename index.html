@@ -63,7 +63,11 @@
             overflow: hidden;
             border-radius: 1rem;
             aspect-ratio: 4/3;
-            background-color: #e2e8f0;
+            background-color: #f1f5f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #e2e8f0;
         }
 
         .img-container img {
@@ -71,10 +75,15 @@
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s;
+            display: block;
         }
 
-        .img-container:hover img {
-            transform: scale(1.05);
+        .img-error-msg {
+            display: none;
+            color: #ef4444;
+            font-size: 0.75rem;
+            text-align: center;
+            padding: 10px;
         }
 
         .img-overlay {
@@ -86,12 +95,12 @@
             padding: 1rem;
             color: white;
             font-size: 0.875rem;
+            z-index: 10;
         }
     </style>
 </head>
 <body class="bg-gradient-soft min-h-screen">
 
-    <!-- 導覽列 -->
     <nav class="sticky top-0 z-50 bg-white/70 backdrop-blur-md border-b border-slate-200">
         <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
             <div class="text-xl font-bold text-slate-800 tracking-wider">TSAI CHIH TING</div>
@@ -105,125 +114,74 @@
 
     <main class="max-w-5xl mx-auto px-6 py-12">
 
-        <!-- 首頁 (Hero Section) -->
+        <!-- 首頁 -->
         <section id="home" class="active">
             <div class="flex flex-col md:flex-row items-center gap-12 pt-10">
                 <div class="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-white shadow-xl flex-shrink-0">
-                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=400&q=80" alt="蔡芷庭個人照" class="w-full h-full object-cover">
+                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=400&q=80" alt="個人照" class="w-full h-full object-cover">
                 </div>
                 <div class="space-y-6 text-center md:text-left">
                     <h1 class="text-4xl md:text-5xl font-bold text-slate-800">蔡芷庭</h1>
                     <p class="text-lg text-slate-600 leading-relaxed max-w-2xl">
-                        目前就讀於國立嘉義大學森林暨自然資源學系大四。我是一位熱愛自然生態與影像創作的探索者，致力於將嚴謹的科學實驗與動心的視覺敘事結合。
+                        目前就讀於國立嘉義大學森林暨自然資源學系大四。熱愛自然生態與影像創作，致力於結合嚴謹科學與視覺藝術。
                     </p>
                     <div class="flex flex-wrap justify-center md:justify-start gap-4">
-                        <button onclick="showSection('research')" class="bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition shadow-lg shadow-blue-200">查看論文研究</button>
-                        <button onclick="showSection('about')" class="bg-white text-slate-700 border border-slate-200 px-8 py-3 rounded-full hover:bg-slate-50 transition">了解更多</button>
+                        <button onclick="showSection('research')" class="bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition shadow-lg shadow-blue-200">查看研究成果</button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 關於我 (About Section) -->
+        <!-- 關於我 -->
         <section id="about">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="md:col-span-1 space-y-8">
-                    <div class="glass-card p-6 rounded-2xl shadow-sm">
+                    <div class="glass-card p-6 rounded-2xl">
                         <h3 class="text-lg font-bold mb-4 border-l-4 border-blue-500 pl-3">專業技能</h3>
                         <div class="flex flex-wrap gap-2">
-                            <span class="skill-tag">影片拍攝與剪輯</span>
-                            <span class="skill-tag">視覺構圖</span>
+                            <span class="skill-tag">影片剪輯</span>
                             <span class="skill-tag">實驗操作</span>
-                            <span class="skill-tag">顯微鏡觀察</span>
-                            <span class="skill-tag">自然紀錄</span>
-                            <span class="skill-tag">InShot / 威力導演</span>
-                        </div>
-                    </div>
-                    <div class="glass-card p-6 rounded-2xl shadow-sm">
-                        <h3 class="text-lg font-bold mb-4 border-l-4 border-blue-500 pl-3">教育背景</h3>
-                        <div class="space-y-4">
-                            <div>
-                                <p class="font-medium text-slate-800">國立嘉義大學</p>
-                                <p class="text-sm text-slate-500">森林暨自然資源學系 (2022 - 至今)</p>
-                            </div>
-                            <div>
-                                <p class="font-medium text-slate-800">樹林高中</p>
-                                <p class="text-sm text-slate-500">普通科 (2019 - 2022)</p>
-                            </div>
+                            <span class="skill-tag">顯微觀察</span>
                         </div>
                     </div>
                 </div>
-
-                <div class="md:col-span-2 space-y-8">
-                    <div class="glass-card p-8 rounded-2xl shadow-sm">
-                        <h2 class="text-2xl font-bold mb-6 text-slate-800">個人特質與職涯目標</h2>
-                        <p class="text-slate-600 mb-6 leading-relaxed">
-                            我具備細心且有耐心的特質，無論是在精密的菌根實驗觀察，還是需要反覆推敲的影片剪輯中，我都能投入極高的專注力直到成品完美。我對於自然界充滿強烈的好奇心，並擁有強大的自我驅動學習能力。
-                        </p>
-                        <p class="text-slate-600 leading-relaxed">
-                            <strong>目標：</strong>希望在影像製作或自然生態相關領域發展，創造出能將專業知識轉化為視覺感動的作品。
-                        </p>
-                    </div>
-
-                    <div class="glass-card p-8 rounded-2xl shadow-sm">
-                        <h2 class="text-2xl font-bold mb-6 text-slate-800">經歷事項</h2>
-                        <ul class="space-y-4">
-                            <li class="flex items-start gap-4">
-                                <div class="bg-blue-100 p-2 rounded-lg text-blue-600 mt-1">
-                                    <i class="fas fa-video"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-slate-800">影像創作實踐</h4>
-                                    <p class="text-sm text-slate-500">負責同學影片之剪輯與配樂安排，並持續進行個人生活與自然紀錄影片拍攝練習。</p>
-                                </div>
-                            </li>
-                            <li class="flex items-start gap-4">
-                                <div class="bg-blue-100 p-2 rounded-lg text-blue-600 mt-1">
-                                    <i class="fas fa-microscope"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-slate-800">專題研究：松露接菌實驗</h4>
-                                    <p class="text-sm text-slate-500">負責實驗設計、操作與根系共生狀況之觀察分析，具備實務科研能力。</p>
-                                </div>
-                            </li>
-                        </ul>
+                <div class="md:col-span-2">
+                    <div class="glass-card p-8 rounded-2xl">
+                        <h2 class="text-2xl font-bold mb-6 text-slate-800">個人特質</h2>
+                        <p class="text-slate-600 leading-relaxed">具備細心且有耐心的特質，能投入極高的專注力直到成品完美。</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 研究內容 (Research Section) -->
+        <!-- 研究成果 -->
         <section id="research">
             <div class="max-w-3xl mx-auto space-y-10">
                 <div class="text-center space-y-4">
-                    <h2 class="text-3xl font-bold text-slate-800">論文題目與專題研究</h2>
-                    <p class="text-blue-600 font-medium">探討夏塊菌與臺灣櫸及台灣二葉松之親合性</p>
-                    <div class="w-20 h-1 bg-blue-500 mx-auto rounded-full"></div>
+                    <h2 class="text-3xl font-bold text-slate-800">專題研究</h2>
+                    <p class="text-blue-600">探討夏塊菌與臺灣櫸及台灣二葉松之親合性</p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- 圖片 A -->
                     <div class="img-container shadow-lg">
-                        <img src="https://raw.githubusercontent.com/wenlingshen/testt/main/0643-0644.png" alt="實驗樣本圖">
-                        <div class="img-overlay font-medium">研究樣本：夏塊菌菌絲觀察</div>
+                        <div id="error-a" class="img-error-msg">找不到圖片 0643-0644.png</div>
+                        <img id="img-a" src="./0643-0644.png" alt="實驗照片1" style="opacity: 0;">
+                        <div class="img-overlay font-medium">研究樣本：夏塊菌觀察</div>
                     </div>
-                    <div class="grid grid-cols-1 gap-4">
-                        <div class="img-container shadow-md">
-                            <img src="https://raw.githubusercontent.com/wenlingshen/testt/main/0861-0863.png" alt="苗木生長圖">
-                            <div class="img-overlay text-xs">苗木生長與根系記錄</div>
-                        </div>
-                        <div class="flex items-center justify-center bg-slate-200 rounded-2xl border-2 border-dashed border-slate-300">
-                             <p class="text-slate-400 text-xs text-center p-4">更多實驗照片<br>持續更新中</p>
-                        </div>
+                    
+                    <!-- 圖片 B -->
+                    <div class="img-container shadow-md">
+                        <div id="error-b" class="img-error-msg">找不到圖片 0861-0863.png</div>
+                        <img id="img-b" src="./0861-0863.png" alt="實驗照片2" style="opacity: 0;">
+                        <div class="img-overlay text-xs">苗木生長記錄</div>
                     </div>
                 </div>
 
-                <div class="glass-card p-8 rounded-2xl shadow-md border-t-4 border-t-blue-500">
-                    <div class="flex items-center gap-4 mb-6">
-                        <i class="fas fa-seedling text-3xl text-green-500"></i>
-                        <h3 class="text-xl font-bold">研究背景與目的</h3>
-                    </div>
-                    <p class="text-slate-600 leading-relaxed mb-6">
-                        夏塊菌（Summer Truffle）是具有高度經濟價值的外生菌根真菌。本研究旨在探討其與台灣本土樹種「臺灣櫸」及「台灣二葉松」在不同環境因子下的接菌親合性，觀察其菌根形成率與生長表現。
+                <div class="glass-card p-8 rounded-2xl shadow-md border-t-4 border-blue-500">
+                    <h3 class="text-xl font-bold mb-4">研究目的</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        分析夏塊菌在不同台灣本土樹種上的共生表現，為後續人工栽培提供數據支持。
                     </p>
                 </div>
             </div>
@@ -231,30 +189,59 @@
 
     </main>
 
-    <footer class="mt-20 py-12 bg-white border-t border-slate-200 text-center">
-        <p class="text-slate-400 text-sm">© 2024 蔡芷庭 Chih-Ting Tsai | 嘉義大學森林暨自然資源學系</p>
+    <footer class="mt-20 py-12 bg-white text-center">
+        <p class="text-slate-400 text-sm">© 2024 蔡芷庭 | 嘉義大學森林暨自然資源學系</p>
     </footer>
 
     <script>
         function showSection(sectionId) {
-            const sections = document.querySelectorAll('section');
-            sections.forEach(sec => sec.classList.remove('active'));
-
-            const target = document.getElementById(sectionId);
-            if (target) {
-                target.classList.add('active');
-            }
-
-            const navButtons = document.querySelectorAll('nav button');
-            navButtons.forEach(btn => btn.classList.remove('active-tab'));
-            
+            document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+            document.querySelectorAll('nav button').forEach(btn => btn.classList.remove('active-tab'));
             const activeNav = document.getElementById('nav-' + sectionId);
-            if (activeNav) {
-                activeNav.classList.add('active-tab');
-            }
-
+            if (activeNav) activeNav.classList.add('active-tab');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
+
+        // 多重路徑偵測邏輯
+        function setupImageRetry(imgId, errorId, fileName) {
+            const img = document.getElementById(imgId);
+            const error = document.getElementById(errorId);
+            let attempt = 0;
+            
+            // 嘗試清單：1.相對路徑 2.Raw路徑 3.大寫PNG 4.大寫Raw
+            const paths = [
+                `./${fileName}`,
+                `https://raw.githubusercontent.com/wenlingshen/testt/main/${fileName}`,
+                `./${fileName.replace('.png', '.PNG')}`,
+                `https://raw.githubusercontent.com/wenlingshen/testt/main/${fileName.replace('.png', '.PNG')}`
+            ];
+
+            img.onload = function() {
+                this.style.opacity = '1';
+                error.style.display = 'none';
+            };
+
+            img.onerror = function() {
+                attempt++;
+                if (attempt < paths.length) {
+                    console.log(`正在嘗試路徑 ${attempt}: ${paths[attempt]}`);
+                    this.src = paths[attempt];
+                } else {
+                    this.style.display = 'none';
+                    error.style.display = 'block';
+                    error.innerHTML = `無法載入圖片：${fileName}<br>請確認檔案已上傳至 testt 儲存庫`;
+                }
+            };
+
+            // 開始第一次嘗試
+            img.src = paths[0];
+        }
+
+        window.onload = function() {
+            setupImageRetry('img-a', 'error-a', '0643-0644.png');
+            setupImageRetry('img-b', 'error-b', '0861-0863.png');
+        };
     </script>
 </body>
 </html>
